@@ -5,7 +5,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": " esp32-2432S028_video_player.ino.bin",
+          "path": " esp32-2432S028_video_player.ino.merged.bin",
           "offset": 10000
         }
       ]
