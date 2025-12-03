@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merged bin ESP32 Web Flasher</title>
+    <!-- 1. Include Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 2. Include the ESP Web Tools library -->
+    <script
+        type="module"
+        src="https://unpkg.com/esp-web-tools@10.0.1/dist/web/install-button.js?module"
+    ></script>
+    <style>
+        /* A simple style for the instruction list */
+        .instructions li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .instructions li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            color: #34d399; /* Tailwind green-400 */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center font-sans p-4">
+
+    <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg text-center">
+        <!-- Header -->
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">Merged Bin</h1>
+            <p class="text-lg text-gray-600 mt-1">ESP32 Web Flasher</p>
+        </header>
+
+        <!-- Instructions -->
+        <div class="text-left bg-gray-50 p-6 rounded-md border border-gray-200 mb-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Instructions</h2>
+            <ul class="instructions text-gray-600">
+                <li>Connect your ESP32 board to this computer via a USB data cable.</li>
+                <li>Click the "Connect" button below to get started.</li>
+                <li>A pop-up will appear. Select the correct serial (COM) port for your ESP32.</li>
+                <li>Follow the on-screen prompts to install or update the firmware.</li>
+            </ul>
+            <p class="text-sm text-center text-blue-600 bg-blue-50 p-3 rounded-md mt-5">
+                <strong>Note:</strong> This tool requires a browser that supports WebSerial, like Google Chrome or Microsoft Edge.
+            </p>
+        </div>
+
+        <!-- 3. This is the magic button. It reads the manifest.json file -->
+        <esp-web-install-button manifest="manifest.json">
+            <!-- This slot provides content for when WebSerial is not supported -->
+            <div slot="unsupported">
+                <p class="text-red-600 bg-red-50 p-4 rounded-md">
+                    Sorry, your browser doesn't support WebSerial. Please try Google Chrome or Microsoft Edge on a desktop computer.
+                </p>
+            </div>
+        </esp-web-install-button>
+    </div>
+
+</body>
+</html>
