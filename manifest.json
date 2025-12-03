@@ -1,0 +1,14 @@
+{
+  "name": "Merged or 10000",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": " esp32-2432S028_video_player.ino.bin",
+          "offset": 10000
+        }
+      ]
+    }
+  ]
+}
